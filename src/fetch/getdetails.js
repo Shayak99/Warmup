@@ -7,7 +7,7 @@ export const getUsers = (async (url) =>{
     return data;
 })
 
-// export const find = (arr, id) => {
-//     const data = arr.find(item => item.id == id);
-//     return data;
-// }
+export const find = (arr, id) => {
+    const data = arr.find(item => item.id == id);
+    return data;
+}

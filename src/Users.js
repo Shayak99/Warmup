@@ -1,11 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Home from "./Home"
 
 function Users({data}) {
     // console.log("data",data);
 
     return (
         <>
+        <Home />
         <div className="h-15 text-5xl uppercase ml-5 mr-5 mt-5 p-3 text-center font-bold bg-white text-blue-900">Lists of Users</div>
         <div className="flex flex-wrap">
            {data && data.map((items) => (

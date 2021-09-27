@@ -1,15 +1,19 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-
+import {find} from "./fetch/getdetails";
+import Home from "./Home"
 
 function Userdetails({ data }) {
   const { id } = useParams();
   console.log(data);
 
-  const similar = data.find((item) => item.id == id);
+  // const similar = data.find((item) => item.id == id);
+  const similar = find(data, id);
 //   console.log("same", similar);
 
   return (
+    <>
+    <Home />
   <div className="flex m-10">
       <div className="p-10">  
     <div className="max-w-sm rounded overflow-hidden bg-white shadow-lg">
@@ -34,6 +38,7 @@ function Userdetails({ data }) {
   <p >Albums</p>
   </Link>
   </div>
+  </>
   );
 }
 

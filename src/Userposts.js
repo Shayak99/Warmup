@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { getUsers } from "./fetch/getdetails";
 import Api from "./api_routes";
 import { useParams, Link } from "react-router-dom";
+import Home from "./Home";
 
 function Userposts({ data }) {
   const [posts, setPost] = useState();
@@ -27,6 +28,8 @@ function Userposts({ data }) {
   console.log("similar", similar);
 
   return (
+    <>
+    <Home />
     <div className="mx-8 my-9">
       <span className="font-bold bg-blue-500 p-5 rounded-lg text-xl text-center ml-20 text-white">
         {" "}
@@ -47,6 +50,7 @@ function Userposts({ data }) {
           ))}
       </div>
     </div>
+    </>
   );
 }
 
