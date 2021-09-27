@@ -19,15 +19,16 @@ function Comments() {
 
     return (
         <>
-        <div className="font-bold text-2xl text-center">-- Comments --</div>
+        <div className="font-bold text-2xl m-4 text-center">-- Comments --</div>
         <div className="flex flex-wrap">
             {data && data.map((item ,ind) => (
-            <div key={ind} className="m-10 hover:bg-gray-100 py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-10 sm:flex sm:items-center sm:space-y-3 sm:space-x-6">
+            <div key={ind} className="hover:bg-gray-100 py-8 px-8 m-3 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-10 sm:flex sm:items-center sm:space-y-3 sm:space-x-6">
                PostId : {item.postId} <br/>
                Name : {item.name} <br/> 
                Email : {item.email}
                 </div>
             ))}
+            
         </div>
         </>
     )
