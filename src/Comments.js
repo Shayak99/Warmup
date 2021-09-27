@@ -15,7 +15,7 @@ function Comments() {
         }
         get()
     },[])
-    data.map(i => console.log(i.postId))
+    // data.map(i => console.log(i.postId))
 
     return (
         <>
