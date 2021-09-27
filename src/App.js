@@ -11,15 +11,15 @@ import Albumpics from "./Albumpics";
 
 function App() {
   const [userdata, setUserdata] = useState({});
-  // const [post, setPost] = useState({});
+  const [post, setPost] = useState({});
 
   useEffect(() => {
     async function get() {
       const res = await getUsers(Api.users);
-      // const postdata = await getUsers(Api.posts);
+      const postdata = await getUsers(Api.posts);
       // console.log(res.map(it => console.log(it.id)));
       setUserdata(res);
-      // setPost(postdata);
+      setPost(postdata);
     }
     get();
   }, []);
@@ -38,7 +38,7 @@ function App() {
           <Userposts data={userdata} />
         </Route>
         <Route path="/post/:id">
-          <SinglePost data={userdata} />
+          <SinglePost post={post}/>
         </Route>
         <Route exact path="/albums/:id">
           <Albums data={userdata} />
