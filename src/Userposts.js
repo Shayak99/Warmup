@@ -24,7 +24,7 @@ function Userposts({ data }) {
   // console.log("posts", posts)
   // console.log("api", `${Api.users}/${id}/posts`)
 
-  const similar = data.find((item) => item.id == id);
+  const similar = data.find((item) => Number(item.id) === Number(id));
   console.log("similar", similar);
 
   return (

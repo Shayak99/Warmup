@@ -27,7 +27,7 @@ function Albumpics() {
             {data && data.map(item => (
                 <div className="m-10 hover:bg-gray-100 py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-10 sm:flex sm:items-center sm:space-y-3 sm:space-x-6">
                     Title : {item.title}
-                    <a className="bg-blue-400 rounded-xl text-center text-white font-bold p-3 ml-2" target="_blank" href={item.url}>Hit Me</a>
+                    <a className="bg-blue-400 rounded-xl text-center text-white font-bold p-3 ml-2" target="_blank" rel="noreferrer" href={item.url}>Hit Me</a>
                 </div>
             ))}
         </div>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Home from "./Home";
-import { getUsers, find } from "./fetch/getdetails";
-import Api from "./api_routes";
+import {  find } from "./fetch/getdetails";
+// import Api from "./api_routes";
 import Comments from "./Comments";
 
 function SinglePost({ post }) {

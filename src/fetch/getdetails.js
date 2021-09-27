@@ -8,6 +8,6 @@ export const getUsers =  (async (url) =>{
 })
 
 export const find = (arr, id) => {
-    const data = arr.find(item => item.id == id);
+    const data = arr.find(item => Number(item.id) === Number(id));
     return data;
 }
