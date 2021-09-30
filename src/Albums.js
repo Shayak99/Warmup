@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import Api from "./api_routes";
-import { getUsers, find } from "./fetch/getdetails";
+import Api from "./fetch/api_routes";
+import { getUsers, findUser } from "./fetch/getdetails";
 import Home from "./Home"
 
 function Albums({ data }) {
@@ -17,28 +17,32 @@ function Albums({ data }) {
     get();
   });
 
-  const similar = find(data, id);
+  const similar = findUser(data, id) || {
+    username : "Oops! not found"
+  };
 
   return (
     <>
     <Home />
-      <div className="bg-white m-10 text-center text-3xl font-bold p-2">
+    <div className="bg-white rounded-lg m-10 text-center text-3xl font-bold p-3">
         Album Pics
       </div>
-      <span className="bg-white text-xl ml-10 font-semibold rounded-xl p-3">
+      <div className="bg-gray-800 text-xl max-w-lg mx-auto text-center text-white font-bold rounded-xl p-3">
         By ~~ {similar.username}
-      </span>
-      <div className="flex flex-wrap">
+      </div>
+      <div className="flex flex-wrap justify-center items-center m-5">
         {albums &&
-          albums.map((item) => (
-            <div className="m-10 hover:bg-gray-100 py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-10 sm:flex sm:items-center sm:space-y-3 sm:space-x-6">
-              Id : {item.id} <br />
-              Title : {item.title}
-              <Link to={`/album/${item.id}`}>
-                <div className="bg-blue-400 rounded-xl text-center text-white font-bold p-3 ml-2">
+          albums.map((item,ind) => (
+            <div key={ind} className=" hover:bg-gray-100 p-8 m-5 max-w-xs bg-white rounded-xl shadow-md  sm:py-10 sm:flex sm:items-center sm:space-y-3 sm:space-x-6">
+              <div className="flex flex-wrap">
+                <div className="p-2"><span className="font-semibold">Id : </span><span className="text-gray-600">{item.id}</span></div>
+                <div className="p-2"><span className="font-semibold">Title : </span><span className="text-gray-600">{item.title}</span></div>
+                <Link to={`/album/${item.id}`}>
+                <div className="bg-blue-400 rounded-xl text-sm text-center text-white font-bold p-3">
                   Click to Open
                 </div>
               </Link>
+              </div>
             </div>
           ))}
       </div>
